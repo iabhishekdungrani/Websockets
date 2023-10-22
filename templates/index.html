@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Stock Prices</title>
+</head>
+<body>
+    <h1>Real-Time Stock Prices</h1>
+    <ul id="stock-list"></ul>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+    <script>
+        const socket = io.connect();
+
+        socket.on('connected', (data) => {
+            console.log(data.data);
+        });
+
+        socket.on('stock_update', (stock) => {
+            const stockList = document.getElementById('stock-list');
+            const listItem = document.createElement('li');
+            listItem.innerText = `${stock.symbol} - ${stock.name}: $${stock.price.toFixed(2)}`;
+            stockList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
