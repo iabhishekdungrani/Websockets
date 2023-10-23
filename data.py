@@ -1,3 +1,4 @@
+#In-memory data generator
 import random
 
 stocks = [
@@ -5,4 +6,3 @@ stocks = [
     {"symbol": "B", "name": "XYZ Inc.", "price": 2500.00},
     {"symbol": "C", "name": "GHI Corp.", "price": 300.00},
 ]
-
